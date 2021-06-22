@@ -1,0 +1,30 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - '12'
+
+git:
+  depth: 3
+
+script:
+  - yarn test
+
+notifications:
+  email:
+    recipients:
+      - yeisson310@hotmail.com
+    on_success: always
+    on_failure: always
+
+deploy:
+  provider: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: 29e231e7-d708-4083-b752-ec7a0a9a784c
+  app: estebanjsplatzistorebackend
+  on:
+    repo: EstebanJS/platzi-store-backend
